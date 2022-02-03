@@ -1,5 +1,5 @@
 "use strict";
-const gameBot = (findNumber, attemp) => {
+function gameBot(findNumber, attemp) {
   let rezult;
   function find() {
     if (attemp > 0) {
@@ -7,6 +7,7 @@ const gameBot = (findNumber, attemp) => {
       if (myNum == undefined) {
         alert("Игра окончена");
         rezult = false;
+        return rezult;
       } else {
         if (isNaN(parseInt(myNum)) && !isFinite(myNum)) {
           alert("Введи число!");
@@ -21,18 +22,23 @@ const gameBot = (findNumber, attemp) => {
           find();
         } else {
           rezult = confirm("Поздравляю, Вы угадали!!! Хотели бы сыграть еще?");
+          return rezult;
         }
       }
     } else {
       rezult = confirm("Попытки закончились, хотите сыграть еще?");
+      return rezult;
     }
   }
-  find();
-  return rezult;
-};
-const gameBotdop = () => {
-  if (gameBot(parseInt(Math.random() * 100), 10) === true) {
-    gameBotdop();
-  }
-};
-gameBotdop();
+  //find();
+  return find;
+}
+// const gameBotdop = () => {
+//   if (gameBot(parseInt(Math.random() * 100), 10) === true) {
+//     gameBotdop();
+//   }
+// };
+// gameBotdop();
+let bot = gameBot(parseInt(Math.random() * 100), 10);
+//bot();
+console.log(bot());
