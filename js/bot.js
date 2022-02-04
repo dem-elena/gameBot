@@ -19,6 +19,8 @@ const gameBot = (findNumber) => {
     }
   }
 
-  find();
+  return find;
 };
-gameBot(parseInt(Math.random() * 100));
+
+let bot = gameBot(parseInt(Math.random() * 100));
+bot();
